@@ -1,0 +1,15 @@
+{% extends 'shop/base.html' %}
+
+  
+
+{% block content %}
+<div style="margin-left: 10%" role="link">
+{% for i in item %}
+
+<button class="btn btn-info ">
+ <a href="{% url 'orders:borrow_detail' i.id  %}">
+{{i.asset_tracking_id}}</button>
+</a>&nbsp;&nbsp; <button class="btn btn-success "><a href="{% url 'orders:return_items' i.id %}">Return</a></button><br><br>
+{% endfor %}
+</div>
+{% endblock %}

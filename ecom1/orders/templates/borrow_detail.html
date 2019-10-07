@@ -1,0 +1,27 @@
+{% extends 'shop/base.html' %}
+
+
+{% block content %}
+
+
+
+<h3>asset_tracking_id :  {{product.asset_tracking_id}}</h3>   <br>
+ <h3>  Note:{{product.note}} </h3><br>
+<h3>Location Moved TO : {{product.location_being_moved_to  }}</h3><br>
+<h3>Move date:{{product.move_date  }}</h3><br>
+<h3>Due for pickup:{{product.due_for_pickup  }}</h3><br>
+<h3>Item Status:{{product.item_status }}</h3><br>
+<h3>Detailed Note:{{product.detailed_note   }}</h3><br>
+<h1>Dynamic Locations</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit">
+</form>
+
+{%  for i in location %}
+{{i.locatio}}<br>
+{% endfor %}
+
+
+{% endblock %}
